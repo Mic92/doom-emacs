@@ -105,13 +105,13 @@
         :desc "attach"        "a" #'mail-add-attachment))
 
 
-(use-package! org-msg
-  :hook (mu4e-compose-pre . org-msg-mode)
-  :config
-  (setq org-msg-startup "inlineimages"
-        org-msg-greeting-name-limit 3
-        org-msg-default-alternatives '(html text)))
-
+(when (featurep! +org-msg)
+  (use-package! org-msg
+    :hook (mu4e-compose-pre . org-msg-mode)
+    :config
+    (setq org-msg-startup "inlineimages"
+          org-msg-greeting-name-limit 3
+          org-msg-default-alternatives '(html text))))
 
 
 ;;
